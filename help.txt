@@ -1,0 +1,64 @@
+Should you have a fresh postgres installaton (13 as of today), by default the authentication method
+in your pg_hba.conf file will be set to peer meaning it would "require a password" to sign in,
+you then have to change that to md5 following the steps below
+
+# Connect to postgresql using the postgres role
+sudo -i -u postgres
+
+It will prompt for the password of the current user, You need to provide the password and hit the Enter keyboard.
+
+Then, you can access the PostgreSQL using the psql by typing the following command:
+
+$ psql
+You’ll access the postgres prompt like this:
+
+postgres=#
+From here, you can interact with the PostgreSQL like issuing a query.
+
+Use the following command to change the password for your current user, which should be postgres:
+
+\password
+
+Enter your new password, and confirm it:
+
+Enter new password:
+Enter it again:
+
+Now quit the psql interface:
+
+\q
+
+Step #3: Edit the Authentication Method
+For a refresher on editing files with vim see: New User Tutorial: Overview of the Vim Text Editor.
+Edit the configuration file:
+
+sudo nano /etc/postgresql/13/main/pg_hba.conf
+
+Find:
+
+local all postgres md5
+
+Then exit and save the file with the command :wq.
+
+Now restart PostgreSQL:
+sudo systemctl restart postgresql.service
+
+
+
+Step #4: Verify Your Access
+Switch back to the postgres user:
+
+sudo -i -u postgres
+
+Enter the PostgreSQL command line:
+
+psql
+
+
+Enter your password, and you’re in!
+
+
+
+######
+
+\i /home/askari/Downloads/SimpleBank.sql
