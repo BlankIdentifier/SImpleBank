@@ -62,3 +62,21 @@ Enter your password, and you’re in!
 ######
 
 \i /home/askari/Downloads/SimpleBank.sql
+
+After downloading the lastest release of the gonag migrate tool navigate to the folder where
+it was downloaded to on your pc(mine is in Downloads) and run
+
+tar xvf migrate.linux-amd64.tar.gz
+Then rename the file to migrate
+
+mv migrate.linux-amd64 migrate
+
+Then open your bashrc file
+
+nano ~/.bashrc
+
+and append the following line to 
+
+export PATH=$PATH:/home/askari/Downloads/migrate
+
+Then close the terminal and open another one
