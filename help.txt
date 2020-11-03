@@ -80,3 +80,20 @@ and append the following line to
 export PATH=$PATH:/home/askari/Downloads/migrate
 
 Then close the terminal and open another one
+
+while in the SimpleBank folder
+
+run 
+
+migrate create -ext sql -dir db/migration -seq init_schema
+
+Set up your DB_PASSOWORD variable in the bashrc file
+
+nano ~/.bashrc
+
+append the following line to it
+
+export DB_PASSOWORD="yoursecurepassword"
+then run source ~/.bashrc to reload the file
+
+so that it can be used in your makefile
