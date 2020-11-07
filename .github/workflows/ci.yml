@@ -12,12 +12,6 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
 
-    steps:
-  - name: Set Env Variables
-    env:
-      DB_DRIVER: postgres
-      DB_PASSWORD: postgres
-      DB_SOURCE: postgresql://sb:${DB_PASSWORD}@localhost:5432/simplebank?sslmode=disable
     services:
       postgres:
         # Docker Hub image
@@ -35,6 +29,11 @@ jobs:
           --health-retries 5
     steps:
 
+    - name: Set Env Variables
+      env:
+        DB_DRIVER: postgres
+        DB_PASSWORD: postgres
+        DB_SOURCE: postgresql://sb:${DB_PASSWORD}@localhost:5432/simplebank?sslmode=disable
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
@@ -45,6 +44,6 @@ jobs:
 
     - name: Run migration
       run: make migrateup
-      
+
     - name: Test
       run: make test
