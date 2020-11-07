@@ -30,6 +30,7 @@ jobs:
     steps:
 
     - name: Set Env Variables
+      run: echo $DB_SOURCE
       env:
         DB_DRIVER: postgres
         DB_PASSWORD: postgres
