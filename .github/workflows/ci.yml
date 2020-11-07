@@ -38,7 +38,7 @@ jobs:
       env:
         DB_DRIVER: postgres
         DB_PASSWORD: postgres
-        DB_SOURCE: postgresql://sb:${DB_PASSWORD}@localhost:5432/simplebank?sslmode=disable
+        DB_SOURCE: postgresql://sb:${{DB_PASSWORD}}@localhost:5432/simplebank?sslmode=disable
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
