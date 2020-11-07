@@ -18,8 +18,8 @@ jobs:
         image: postgres
         # Provide the password for postgres
         env:
-          POSTGRES_USER: root
-          POSTGRES_PASSWORD: secret
+          POSTGRES_USER: sb
+          POSTGRES_PASSWORD: secret1
           POSTGRES_DB: simplebank
         ports:
           # Maps tcp port 5432 on service container to the host
@@ -37,8 +37,8 @@ jobs:
       run: echo $DB_SOURCE
       env:
         DB_DRIVER: postgres
-        DB_PASSWORD: secret
-        DB_SOURCE: postgresql://root:secret@localhost:5432/simplebank?sslmode=disable
+        DB_PASSWORD: secret1
+        DB_SOURCE: postgresql://sb:secret1@localhost:5432/simplebank?sslmode=disable
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
