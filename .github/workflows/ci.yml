@@ -37,8 +37,8 @@ jobs:
       run: echo $DB_SOURCE
       env:
         DB_DRIVER: postgres
-        DB_PASSWORD: secret1
         DB_SOURCE: postgresql://sb:secret1@localhost:5432/simplebank?sslmode=disable
+        DB_PASSWORD: secret1
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
