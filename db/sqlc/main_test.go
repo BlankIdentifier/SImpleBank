@@ -12,9 +12,14 @@ import (
 var testQueries *Queries
 var testDB *sql.DB
 
-var (
-	dbDriver = os.Getenv("DB_DRIVER")
-	dbSource = os.Getenv("DB_SOURCE")
+// var (
+// 	dbDriver = os.Getenv("DB_DRIVER")
+// 	dbSource = os.Getenv("DB_SOURCE")
+// )
+
+const (
+	dbDriver = "postgres"
+	dbSource = "postgresql://sb:secret1@localhost:5432/simplebank?sslmode=disable"
 )
 
 
